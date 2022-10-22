@@ -22,7 +22,7 @@ bool moveMin(vector<int>& in) {
 
 bool testMovMin(){
 	//size of array
-	int n = 1 + (rand() % 100);
+	int n = 1 + (rand() % 1000);
 	
 	//vector input from user
 	vector<int> v;
