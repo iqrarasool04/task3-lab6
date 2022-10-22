@@ -22,12 +22,12 @@ bool moveMin(vector<int>& in) {
 
 bool testMovMin(){
 	//size of array
-	int n = 1 + (rand() % 100);
+	int n = 1 + (rand() % 10);
 	
 	//vector input from user
 	vector<int> v;
 	srand(time(0));
-	cout << "Array with random numbers:" << endl;
+	cout << "Vector with random numbers:" << endl;
 	for (int i = 0; i < n; i++) {
 		int val = 1 + (rand() % 100);
 		v.push_back(val);
