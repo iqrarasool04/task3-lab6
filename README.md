@@ -24,7 +24,7 @@ bool moveMin(vector<int>& in) {
 
 bool testMovMin(){
 	//size of array
-	int n = 1 + (rand() % 1000);
+	int n = 1 + (rand() % 100000);
 	
 	//vector input from user
 	vector<int> v;
@@ -69,6 +69,11 @@ bool testMovMin(){
 	//sort using above function
 	moveMin(u);
 
+	//printing copy vector
+	cout << "Vector after sorting by moveMin: " << endl;
+	for (int i = 0; i < u.size();i++) {
+		cout << u[i] << endl;
+	}
 	//stop time
 	auto stop1 = high_resolution_clock::now();
 
@@ -76,11 +81,26 @@ bool testMovMin(){
 	auto duration1 = duration_cast<microseconds> (stop1 - start1);
 	cout << "Time taken by moveMin function: " << duration1.count() << " microseconds" << endl;
 
-	//printing copy vector
-	cout << "Vector after sorting by moveMin: " << endl;
-	for (int i = 0; i < u.size();i++) {
-		cout << u[i] << endl;
+	int best_case;
+	int worst_case;
+	int average_case = duration1.count();
+	for (int i = 0; i < 100; i++) {
+		//if (i == 0) {
+		best_case = 0;
+		worst_case = 0;
+		//}
+		if (duration1.count()<best_case) {
+			best_case = duration1.count();
+		}
+		else if (duration1.count() > worst_case) {
+			worst_case = duration1.count();
+		}
+		
+		average_case = average_case / 100;
 	}
+	cout << "Best case running time is: " << best_case << endl;
+	cout << "Worst case running time is: " << worst_case << endl;
+	cout << "Average case running time is: " << average_case << endl;
 
 	//comparing vectors
 	assert(u == v);
